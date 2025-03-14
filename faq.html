@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Waste Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #1a1a1a, #333);
+            display: flex;
+            padding:20px;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+            padding-top: 60px;
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        .content {
+            flex-grow: 1;
+            transition: margin-left 0.3s ease-in-out;
+            margin-left: 0;
+        }
+        .content.shift {
+            margin-left: 250px;
+        }
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background:rgb(187, 238, 187);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            z-index: 1100;
+            transition: left 0.3s ease-in-out;
+        }
+        .sidebar.open + .toggle-btn {
+            left: 270px;
+        }
+    </style>
+</head>
+<body class="text-white">
+    
+    <div class="sidebar p-4" id="sidebar">
+        <h1 class="text-2xl font-bold text-green-400">E-Waste Samadhan</h1>
+        <nav class="mt-4 space-y-4">
+            <a href="dashboard.html" class="block text-white hover:text-green-400 transition">Home</a>
+            <a href="pickup.html" class="block text-white hover:text-green-400 transition">Pickup Scheduling</a>
+            <a href="chatbot.html" class="block text-white hover:text-green-400 transition">AI Chatbot</a>
+            <a href="image_classification.html" class="block text-white hover:text-green-400 transition">AI Waste Classification</a>
+            <a href="faq.html" class="block text-white hover:text-green-400 transition">FAQs</a>
+            <a href="recycleOrTrash.html" class="block text-white hover:text-green-400 transition">Learn with games</a>
+            <a href="maps.html" class="block text-white hover:text-green-400 transition">visit maps</a>
+            <a href="refferal.html" class="block text-white hover:text-green-400 transition">Refer here</a>
+            <a href="profile.html" class="block text-white hover:text-green-400 transition">Profile</a>
+        </nav>
+        <button class="mt-4 bg-green-500 px-4 py-2 rounded-full text-white hover:bg-green-600 transition">
+            <a href="index.html" >Log Out</a>
+        </button>
+    </div>
+    
+    <div class="toggle-btn" id="toggleBtn">☰</div>
+    
+    <div class="content" id="content">
+        <div class="relative w-full">
+            <img src="assets/international-e-waste-day.jpg" alt="E-Waste Collection" class="w-full h-40 md:h-56 object-cover">
+            <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
+                <h1 class="text-3xl md:text-4xl font-bold text-white">E-Waste Collection Platform</h1>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="max-w-6xl mx-auto mt-10 p-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-green-300 mb-6 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <details class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <summary class="text-lg font-bold text-green-400 cursor-pointer">What is e-waste, and why is it important to dispose of it properly?</summary>
+                    <p class="text-gray-300 mt-2 text-sm">E-waste includes discarded electronic devices like old phones, computers, and appliances. Proper disposal prevents environmental damage and health risks caused by toxic materials like lead and mercury.</p>
+                </details>
+    
+                <details class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <summary class="text-lg font-bold text-green-400 cursor-pointer">How does this platform help in e-waste management?</summary>
+                    <p class="text-gray-300 mt-2 text-sm">Our AI-powered platform connects rural citizens with authorized e-waste recyclers, offers educational resources, and provides pickup scheduling for easy disposal.</p>
+                </details>
+    
+                <details class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <summary class="text-lg font-bold text-green-400 cursor-pointer">Who can use this platform?</summary>
+                    <p class="text-gray-300 mt-2 text-sm">Any citizen of the Rajkot District can use this platform to dispose of e-waste. Registered recyclers with GPCB can also use it to collect and process waste.</p>
+                </details>
+    
+                <details class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <summary class="text-lg font-bold text-green-400 cursor-pointer">Is there a cost for using the e-waste pickup service?</summary>
+                    <p class="text-gray-300 mt-2 text-sm">No, our platform provides free e-waste pickup services in designated rural areas. However, in some cases, recyclers may offer incentives for certain types of e-waste.</p>
+                </details>
+                
+                <details class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <summary class="text-lg font-bold text-green-400 cursor-pointer">What happens to my e-waste after collection?</summary>
+                    <p class="text-gray-300 mt-2 text-sm">The collected e-waste is sent to registered recyclers who extract valuable materials and dispose of hazardous components in an environmentally friendly way.</p>
+                </details>
+                
+                <details class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <summary class="text-lg font-bold text-green-400 cursor-pointer">How can I schedule an e-waste pickup?</summary>
+                    <p class="text-gray-300 mt-2 text-sm">Simply log in to the platform, select "Schedule Pickup," enter your location, and choose a convenient time. Our AI will assign the best route for recyclers.</p>
+                </details>
+    
+                <details class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <summary class="text-lg font-bold text-green-400 cursor-pointer">Can I track my e-waste pickup request?</summary>
+                    <p class="text-gray-300 mt-2 text-sm">Yes! Once your pickup is scheduled, you can track the recycler’s location in real-time through our platform.</p>
+                </details>
+    
+                <details class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <summary class="text-lg font-bold text-green-400 cursor-pointer">How does the AI chatbot help in e-waste management?</summary>
+                    <p class="text-gray-300 mt-2 text-sm">The chatbot answers your questions about e-waste, educates users about proper disposal methods, and assists in scheduling pickups.</p>
+                </details>
+    
+                <details class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <summary class="text-lg font-bold text-green-400 cursor-pointer">Are there any rewards for recycling e-waste?</summary>
+                    <p class="text-gray-300 mt-2 text-sm">Yes! Our platform uses a gamification system where users earn points for responsible e-waste disposal. These points can be redeemed for incentives or community recognition.</p>
+                </details>
+            </div>
+        </div>
+        <footer class="bg-black mt-10 p-4 text-center text-white">
+            <p class="text-lg">📞 If you have any doubts, call us at <span class="font-bold">+91 920282719</span></p>
+            <div class="flex justify-center space-x-6 mt-2">
+                <a href="#" class="hover:text-green-400 transition">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="w-6 inline-block">
+                </a>
+                <a href="#" class="hover:text-green-400 transition">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="w-6 inline-block">
+                </a>
+                <a href="#" class="hover:text-green-400 transition">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111728.png" alt="WhatsApp" class="w-6 inline-block">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleBtn = document.getElementById('toggleBtn');
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+                content.classList.toggle('shift');
+                if (sidebar.classList.contains('open')) {
+                    toggleBtn.style.left = '270px';
+                } else {
+                    toggleBtn.style.left = '20px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
